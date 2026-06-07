@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: mart_resilience_score
+    description: "Composite resilience and vulnerability scores per country per year"
+    columns:
+      - name: country_code
+        tests: [not_null]
+      - name: year
+        tests: [not_null]
+      - name: resilience_priority_score
+        tests: [not_null]
+
+  - name: mart_deployment_targets
+    description: "Latest year deployment priority ranking per country"
+    columns:
+      - name: country_code
+        tests: [not_null, unique]
+      - name: deployment_priority_rank
+        tests: [not_null]
+      - name: priority_tier
+        tests:
+          - accepted_values:
+              values: ['CRITICAL', 'HIGH', 'MEDIUM', 'LOW']

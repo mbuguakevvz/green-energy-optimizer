@@ -1,0 +1,31 @@
+version: 2
+
+models:
+  - name: stg_energy_access
+    description: "World Bank energy access, poverty, population and GDP indicators per country per year"
+    columns:
+      - name: country_code
+        tests: [not_null]
+      - name: year
+        tests: [not_null]
+      - name: electricity_access_pct
+        tests:
+          - not_null:
+              config:
+                severity: warn
+
+  - name: stg_climate_risk
+    description: "Monthly aggregated climate data per country from Open-Meteo"
+    columns:
+      - name: country_code
+        tests: [not_null]
+      - name: year
+        tests: [not_null]
+
+  - name: stg_displacement
+    description: "UNHCR displacement data per country per year with displacement rate"
+    columns:
+      - name: country_code
+        tests: [not_null]
+      - name: year
+        tests: [not_null]

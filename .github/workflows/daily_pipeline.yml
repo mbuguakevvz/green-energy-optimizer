@@ -1,0 +1,50 @@
+name: Daily Energy Pipeline
+
+on:
+  schedule:
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+
+jobs:
+  run-pipeline:
+    runs-on: ubuntu-latest
+
+    env:
+      DB_HOST: ${{ secrets.DB_HOST }}
+      DB_PORT: ${{ secrets.DB_PORT }}
+      DB_NAME: ${{ secrets.DB_NAME }}
+      DB_USER: ${{ secrets.DB_USER }}
+      DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Fetch World Bank data
+        run: python ingestion/fetch_worldbank.py
+
+      - name: Fetch Open-Meteo climate data
+        run: python ingestion/fetch_openmeteo.py
+
+      - name: Fetch UNHCR displacement data
+        run: python ingestion/fetch_unhcr.py
+
+      - name: Run dbt models
+        run: |
+          cd dbt_project/green_energy_dbt
+          dbt run
+          dbt test
+
+      - name: Run resilience scoring
+        run: python optimization/recommender.py
+
+      - name: Run demand forecasting
+        run: python forecasting/demand_forecast.py

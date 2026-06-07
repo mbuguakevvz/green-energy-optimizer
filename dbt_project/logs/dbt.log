@@ -1,0 +1,49 @@
+==================== 2026-06-06T09:50:15.314101Z | 019e9c57-1d08-7fb2-9d35-a44462ebbaaa ====================
+09:50:15.314723 [info ]: Installing dbt project and profile setup
+09:50:15.361473 [info ]: Info Created .vscode/extensions.json with dbt extension recommendation
+09:50:15.362930 [info ]: Success Project created successfully!
+09:50:15.363359 [info ]: Info Project name: jaffle_shop
+09:50:15.367665 [info ]: Info Project directory: jaffle_shop
+09:50:15.403013 [info ]: Info Setting up your profile...
+09:50:15.430107 [info ]: Loading ~/.dbt/profiles.yml
+09:50:15.467430 [info ]: Info Creating new profile...
+09:50:29.307205 [info ]: No dbt_cloud.yml found - proceeding without cloud pre-population
+09:52:52.607376 [info ]: Success Profile written to C:\Users\user\.dbt\profiles.yml
+09:52:52.608987 [info ]: Validating profile inputs, adapters, and connection
+
+09:52:52.610942 [info ]: dbt-core 2.0.0-alpha.1
+09:52:52.613920 [info ]: Started loading project
+09:52:52.621389 [info ]: Loading ~/.dbt/profiles.yml
+09:52:52.633323 [info ]: Finished loading project [  0.02s]
+09:52:52.634059 [error]: [InvalidConfig (dbt1005)]: The 'postgres' adapter is not yet supported by dbt Fusion. Supported adapters: snowflake, bigquery, databricks, redshift
+09:52:52.921037 [info ]: 
+==================== Execution Summary =====================
+Finished 'init' with 1 error [2m 38s]
+[0m12:55:23.482885 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000027E44212770>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000027E46F7F340>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000027E46F7F160>]}
+
+
+============================== 12:55:23.488849 | a5b88e16-ca82-4052-b293-7f8942a5652a ==============================
+[0m12:55:23.488849 [info ] [MainThread]: Running with dbt=1.8.0
+[0m12:55:23.490847 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\user\\.dbt', 'debug': 'False', 'warn_error': 'None', 'log_path': 'logs', 'version_check': 'True', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'target_path': 'None', 'invocation_command': 'dbt init green_energy_dbt', 'send_anonymous_usage_stats': 'True'}
+[0m12:55:23.529698 [debug] [MainThread]: Starter project path: C:\Users\user\green-energy-optimizer\venv\lib\site-packages\dbt\include\starter_project
+[0m12:55:23.625584 [info ] [MainThread]: 
+Your new dbt project "green_energy_dbt" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m12:55:23.627578 [info ] [MainThread]: Setting up your profile.
+[0m12:58:22.898298 [info ] [MainThread]: Profile green_energy_dbt written to C:\Users\user\.dbt\profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m12:58:22.901291 [debug] [MainThread]: Command `dbt init` succeeded at 12:58:22.900295 after 179.56 seconds
+[0m12:58:22.903286 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000027E44212770>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000027E46F7F340>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000027E468F62F0>]}
+[0m12:58:22.903286 [debug] [MainThread]: Flushing usage events
